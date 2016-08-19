@@ -1,0 +1,2 @@
+$('#review-<%= @review.id %>').slideUp();
+$("#review_count").html("<%= j render 'review_count', review_count: @review.restaurant.reviews.size %>")

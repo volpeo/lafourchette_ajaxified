@@ -1,0 +1,13 @@
+<% if @review.errors.any? %>
+  $('#new_review').html("<%= j render 'new', restaurant: @restaurant, review: @review %>")
+<% else %>
+  // vider le formulaire
+  $("#review_content").val("");
+  // ajouter le commentaire à la liste
+  $review = $("<%= j render 'review', review: @review %>").hide();
+  $("#reviews").append($review);
+  $review.slideDown();
+  // mettre à jour le nombre de reviews
+  $("#review_count").html("<%= j render 'review_count', review_count: @restaurant.reviews.size %>")
+  $('#new_review').html("<%= j render 'new', restaurant: @restaurant, review: Review.new %>")
+<% end %>

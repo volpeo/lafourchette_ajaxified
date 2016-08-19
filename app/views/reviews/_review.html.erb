@@ -1,0 +1,7 @@
+<div id="review-<%= review.id %>">
+  <p>
+    <%= review.content %>
+    <%= link_to "&times;".html_safe, review_path(review), method: :delete, remote: true %>
+  </p>
+  <hr>
+</div>
